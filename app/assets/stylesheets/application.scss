@@ -51,11 +51,17 @@ p, label, a {
 a {
   color: $teal;
 }
-.navbar.navbar-inverse {
-  background: $darkgray;
 
-  font-family: 'Fauna One', serif;
-}
-.navbar.navbar-inverse a {
-    color: $white;
-}
+  #nav.navbar.navbar-inverse {
+    background: $darkgray;
+
+    font-family: 'Fauna One', serif;
+    a {
+      color: $white;
+      cursor: pointer;
+      font-family: 'Roboto', sans-serif;
+    }
+    .dropdown-menu {
+      background: $darkgray;
+    }
+  }
