@@ -24,16 +24,38 @@ $khaki: #BBC0A9;
 $blue: #048897;
 $red: #680909;
 
+html, body {
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
   color: $slate;
 }
 
-p {
+h3, h4 {
   font-family: 'Fauna One', serif;
+
+}
+p, label, a {
   color: $slate;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  // font-family: 'Lora', serif;
+
 }
 
+a {
+  color: $teal;
+}
 .navbar.navbar-inverse {
   background: $darkgray;
+
+  font-family: 'Fauna One', serif;
+}
+.navbar.navbar-inverse a {
+    color: $white;
 }

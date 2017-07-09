@@ -8,15 +8,16 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fauna+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500" rel="stylesheet">
 
   </head>
 
   <body>
-      <div class="container-fluid">
         <%= render 'partials/navigation' %>
           <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
-      </div>
+
       <div class="container-fluid">
           <%= yield %>
       </div>
