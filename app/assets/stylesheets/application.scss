@@ -28,6 +28,7 @@ html, body {
   margin: 0;
   padding: 0;
   min-width: 100%;
+  background-color: $white;
   min-height: 100%;
 }
 
@@ -36,7 +37,7 @@ h1, h2, h3, h4, h5, h6 {
   color: $slate;
 }
 
-h3, h4 {
+h4 {
   font-family: 'Fauna One', serif;
 
 }
@@ -52,6 +53,39 @@ a {
   color: $teal;
 }
 
+
+// INPUT
+input{
+  font-family: 'Roboto', 'sans-serif';
+  font-weight: 300;
+}
+.form-control:focus{
+  border-color: $teal;
+}
+// BUTTONS
+.btn {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+.btn.btn-outline-primary {
+  border: 2px solid $blue;
+  color: $blue;
+}
+.btn-outline-primary:hover {
+  background: $blue;
+  color: $white;
+}
+.btn-outline-warning {
+  border: 2px solid $khaki;
+  color: $khaki;
+}
+.btn-outline-warning:hover {
+  background: $khaki;
+  border: 2px solid $khaki;
+  color: $white;
+}
+
+// NAVIGATION
   #nav.navbar.navbar-inverse {
     background: $darkgray;
 
@@ -60,6 +94,10 @@ a {
       color: $white;
       cursor: pointer;
       font-family: 'Roboto', sans-serif;
+    }
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      color: $white;
     }
     .dropdown-menu {
       background: $darkgray;
