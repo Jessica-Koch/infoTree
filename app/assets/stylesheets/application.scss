@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+$darkgray: #383A37;
+$slate: #585858;
+$teal: #3C6E71;
+$white: #FCFCF5;
+$gray: #D9D9D9;
+$tan: #D3D8C4;
+$khaki: #BBC0A9;
+$blue: #048897;
+$red: #680909;
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  color: $slate;
+}
+
+p {
+  font-family: 'Fauna One', serif;
+  color: $slate;
+}
+
+.navbar.navbar-inverse {
+  background: $darkgray;
+}
