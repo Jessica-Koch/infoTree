@@ -28,7 +28,7 @@ html, body {
   margin: 0;
   padding: 0;
   min-width: 100%;
-  background-color: $white;
+  background-color: white;
   min-height: 100%;
 }
 
@@ -37,14 +37,17 @@ h1, h2, h3, h4, h5, h6 {
   color: $slate;
 }
 
+
 h4 {
   font-family: 'Fauna One', serif;
+  font-size: 16px;
 
 }
-p, label, a {
+p, label {
   color: $slate;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
+  font-size: 12px
   // font-family: 'Lora', serif;
 
 }
@@ -73,7 +76,7 @@ input{
 }
 .btn-outline-primary:hover {
   background: $blue;
-  color: $white;
+  color: white;
 }
 .btn-outline-warning {
   border: 2px solid $khaki;
@@ -82,24 +85,67 @@ input{
 .btn-outline-warning:hover {
   background: $khaki;
   border: 2px solid $khaki;
-  color: $white;
+  color: white;
 }
 
+.plus, .minus, .edit {
+  color: $slate;
+  background: white;
+  width: 31px;
+  padding: 4px;
+  text-align: center;
+  line-height: normal;
+  cursor: pointer;
+  border-radius: 25px;
+  border: 2px solid $slate;
+}
+.plus:hover, .minus:hover, .edit {
+  text-decoration: none;
+  background-color: $slate;
+  color: white;
+}
+
+#edit-button-group {
+  .edit, .minus {
+    margin: 1em;
+
+  }
+}
 // NAVIGATION
   #nav.navbar.navbar-inverse {
     background: $darkgray;
 
     font-family: 'Fauna One', serif;
     a {
-      color: $white;
+      color: white;
       cursor: pointer;
       font-family: 'Roboto', sans-serif;
     }
     .navbar-brand {
       font-family: 'Playfair Display', serif;
-      color: $white;
+      color: white;
+    }
+
+    .nav-link{
+      font-family: 'Roboto', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
     }
     .dropdown-menu {
       background: $darkgray;
     }
   }
+
+// PAGINATION
+.paginator {
+  width: 100%;
+  .pagination {
+    width: 100%;
+    justify-content: space-around;
+  }
+}
+
+// LAYOUT
+.section {
+  margin-bottom: 30px
+}

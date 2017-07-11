@@ -3,26 +3,43 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <%= link_to 'Home', root_path, class: 'navbar-brand' %>
+  <%= link_to 'InfoTree', root_path, class: 'navbar-brand' %>
 
-  <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-    <ul class="navbar-nav">
+  <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+    <ul class="nav justify-content-center col-md-11">
+      <li class="nav-item">
+        <%= link_to 'Wikis', wikis_path, class: 'nav-link' %>
 
-      <% if user_signed_in? %>
-      <li class="nav-dropdown nav-item">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <%= current_user.email %>
-          <i class="fa fa-caret-down" aria-hidden="true"></i>
-        </a>
-        <ul class="dropdown-menu" role="menu">
-          <li class="nav-item"><%= link_to 'Profile', edit_user_registration_path %></li>
-          <li class="nav-item"><%= link_to 'Log Out', destroy_user_session_path, :method => :delete %></li>
-        </ul>
+
       </li>
-      <% else %>
-      <li class="nav-link"><%= link_to 'Log In', new_user_session_path %></li>
-      <li class="nav-link"><%= link_to 'Sign Up', new_user_registration_path %></li>
-      <% end %>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+
+
     </ul>
+    <% if user_signed_in? %>
+    <div class="form-inline my-2 my-lg-0">
+      <a class="nav-link" data-toggle="dropdown" href="#">
+        <%= link_to edit_user_registration_path do %>
+        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        <% end %>
+        <i class="fa fa-caret-down" aria-hidden="true"></i>
+      </a>
+      <ul class="dropdown-menu" role="menu">
+        <li class="nav-item"><%= link_to 'Profile', edit_user_registration_path %></li>
+        <li class="nav-item"><%= link_to 'Log Out', destroy_user_session_path, :method => :delete %></li>
+      </ul>
+    </div>
+    <% else %>
+    <div class="nav-link"><%= link_to 'Log In', new_user_session_path %></div>
+    <div class="nav-link"><%= link_to 'Sign Up', new_user_registration_path %></div>
+    <% end %>
   </div>
 </nav>

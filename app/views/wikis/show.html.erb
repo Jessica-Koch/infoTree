@@ -1,0 +1,20 @@
+<div class="container">
+  <div id="edit-button-group" class="row justify-content-end">
+
+
+      <%= link_to '-', @wiki, method: :delete, class: 'minus' %>
+
+      <%= link_to edit_wiki_path(@wiki), class: 'edit' do  %>
+      <i class="fa fa-pencil"></i>
+      <% end %>
+
+  </div>
+
+</div>
+<div class="container">
+  <h1><%= @wiki.title %></h1>
+  <hr>
+  <br>
+
+  <p><%= @wiki.body %></p>
+</div>

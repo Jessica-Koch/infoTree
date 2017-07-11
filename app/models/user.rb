@@ -1,7 +1,9 @@
 class User < ApplicationRecord
-  after_create :skip_conf!
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  after_create :skip_conf!
+  has_many :wikis
+
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
