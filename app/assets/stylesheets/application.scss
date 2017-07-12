@@ -73,6 +73,7 @@ input{
 .btn.btn-outline-primary {
   border: 2px solid $blue;
   color: $blue;
+  border-radius: 1em;
 }
 .btn-outline-primary:hover {
   background: $blue;
@@ -80,6 +81,7 @@ input{
 }
 .btn-outline-warning {
   border: 2px solid $khaki;
+  border-radius: 1em;
   color: $khaki;
 }
 .btn-outline-warning:hover {

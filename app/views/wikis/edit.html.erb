@@ -2,6 +2,7 @@
   <!-- Wiki -->
 <h2>Edit Wiki</h2>
   <div class="col-md-8">
+    <%= button_to "Back", wikis_path, method: "get", class: "btn btn-primary btn-outline btn-sm" %>
 
   <%= render partial: 'form', locals: {wiki: @wiki} %>
   </div>
