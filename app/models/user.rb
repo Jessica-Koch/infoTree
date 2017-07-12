@@ -7,6 +7,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
+  enum role: [:standard, :premium, :admin]
+
   def skip_conf!
     self.confirm if Rails.env.development?
   end

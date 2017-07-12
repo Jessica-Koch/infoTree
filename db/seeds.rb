@@ -1,10 +1,11 @@
-require 'random_data'
 
+require 'random_data'
 25.times do
   User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
+    role: [:standard, :premium, :admin].sample,
     password: Faker::Internet.password(8)
   )
 end
