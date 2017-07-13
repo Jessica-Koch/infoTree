@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions' }
 
-  # resources :users, only: [] do
   resources :wikis
-  # end
-
+  resources :charges, only: [:new, :create]
 
   root 'home#index'
 
