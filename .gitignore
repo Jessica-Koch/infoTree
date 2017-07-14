@@ -17,8 +17,7 @@
 /yarn-error.log
 
 .byebug_history
-<<<<<<< HEAD
-=======
+
 /config/secrets.yml
->>>>>>> 90b793a503e100d1d87af2b0bbf10fafa91ad5b0
+
 .env
