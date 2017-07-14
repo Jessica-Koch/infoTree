@@ -1,16 +1,24 @@
 module StripeTool
-  def self.create_customer(email, stripe_token)
-    customer = Stripe::Customer.create(
-      email: current_user.email,
-      card: params[:stripeToken]
+  def self.create_customer(email: email, stripe_token: stripe_token)
+    Stripe::Customer.create(
+      email: email,
+      source: stripe_token
     )
   end
 
-  def self.create_charge( customer_id, amount, description)
-    charge = Stripe::Charge.create(
-      customer: customer.id, # This is NOT the application user_id
+  def self.create_membership(email: email, stripe_token: stripe_token, plan: plan)
+    Stripe::Customer.create(
+      email: email,
+      source: stripe_token,
+      plan: plan
+    )
+  end
+
+  def self.create_charge(customer_id: customer_id, amount: amount, description: description)
+    Stripe::Charge.create(
+      customer: customer_id,
       amount: amount,
-      description: "Premium Membership - #{current_user.email}",
+      description: description,
       currency: 'usd'
     )
   end
