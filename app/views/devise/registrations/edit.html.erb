@@ -1,3 +1,11 @@
+<div class="container">
+  <div class="row justify-content-end">
+    <% if current_user.role != 'premium'%>
+    <%= link_to 'Upgrade', new_charge_path, class: 'upgrade' %>
+    <% end %>
+  </div>
+
+</div>
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>

@@ -14,9 +14,10 @@ gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails'
 gem 'rails-assets-tether', '>= 1.1.0'
 gem 'turbolinks', '~> 5'
-gem 'listen', '>= 3.0.5', '< 3.2'
 gem 'uglifier', '>= 1.3.0'
 gem "pundit"
+gem 'stripe'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -45,6 +46,8 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'dotenv-rails'
+
 end
 
 group :development do
