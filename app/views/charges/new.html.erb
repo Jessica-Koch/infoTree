@@ -7,12 +7,13 @@
   <% end %>
 
   <label class="amount">
-    <span>Amount: $5</span>
+    <span>Amount: <%= pretty_amount(@amount) %></span>
   </label>
 </article>
   <script class='stripe-button'         src="https://checkout.stripe.com/checkout.js"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>""
-    data-amount="<%= @stripe_btn_data[:amount] %>"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-amount="<%= @amount %>"
     data-locale="auto"
+    data-email="<%= current_user.email %>"
     data-description="<%= @stripe_btn_data[:description] %>"></script>
 <% end %>

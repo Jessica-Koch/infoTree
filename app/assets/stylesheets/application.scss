@@ -90,7 +90,7 @@ input{
   color: white;
 }
 
-.plus, .minus, .edit {
+.plus, .minus, .edit, .upgrade {
   color: $slate;
   background: white;
   width: 31px;
@@ -101,7 +101,11 @@ input{
   border-radius: 25px;
   border: 2px solid $slate;
 }
-.plus:hover, .minus:hover, .edit {
+.upgrade {
+  width: auto;
+  padding: 7px 15px;
+}
+.plus:hover, .minus:hover, .edit:hover, .upgrade:hover {
   text-decoration: none;
   background-color: $slate;
   color: white;
