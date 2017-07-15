@@ -1,7 +1,13 @@
 <div class="container">
   <div class="row justify-content-end">
-    <% if current_user.role != 'premium'%>
+    <% if current_user.role == 'standard'%>
     <%= link_to 'Upgrade', new_charge_path, class: 'upgrade' %>
+    <% end %>
+
+    <% if current_user.role == 'premium'%>
+
+    <%= button_to "Cancel Subscription", cancel_plan_path, :data => { :confirm => "Are you sure?" }, :method => :delete, class: "btn btn-default btn-xs" %>
+
     <% end %>
   </div>
 

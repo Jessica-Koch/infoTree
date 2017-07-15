@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :wikis
   resources :charges, only: [:new, :create]
-  get 'thanks', to: 'charges#thanks', as: 'thanks'
+  delete '/cancel_plan' => 'charges#cancel_plan'
   root 'home#index'
 
 end

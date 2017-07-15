@@ -14,12 +14,16 @@ module StripeTool
     )
   end
 
-  def self.create_charge(customer_id: customer_id, amount: amount, description: description)
-    Stripe::Charge.create(
+  def self.create_subscription(customer_id: customer_id, plan: plan)
+    Stripe::Subscription.create(
       customer: customer_id,
-      amount: amount,
-      description: description,
-      currency: 'usd'
+      plan: plan
     )
+  end
+
+  def self.cancel_subscription(email: email, customer_id: customer_id, stripe_token: stripe_token, plan: plan )
+    customer = Stripe::Customer.retrieve(customer_id: customer_id)
+    sub = customer.subscriptions.retrieve(plan: plan)
+    sub.delete
   end
 end

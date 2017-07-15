@@ -12,23 +12,42 @@ class ChargesController < ApplicationController
   def create
     if params[:subscription].include? 'yes'
       StripeTool.create_membership(email: params[:stripeEmail],
-        stripe_token: params[:stripeToken],
-      plan: @plan)
+      stripe_token: params[:stripeToken], plan: @plan)
     else
       customer = StripeTool.create_customer(email: params[:stripeEmail],
       stripe_token: params[:stripeToken])
-      charge = StripeTool.create_charge(customer_id: customer.id,
-        amount: @amount,
-      description: @description)
+      charge = StripeTool.create_subscription(customer_id: customer.id, plan: @plan)
     end
-
-    redirect_to thanks_path
+    if current_user.save!
+      current_user.role = 'premium'
+      current_user.stripe_customer_id = customer.id
+      current_user.save!
+      flash[:notice] = "Thanks for signing up #{current_user.email}!"
+      redirect_to wikis_path
+    end
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
   end
 
-  def thanks
+  def cancel_plan
+    @user = current_user
+
+    if params[:action] == 'cancel_plan'
+      customer = Stripe::Customer.retrieve(id: current_user.stripe_customer_id)
+
+      # binding.pry
+      sub_id = customer.subscriptions.first.id
+      sub = Stripe::Subscription.retrieve(sub_id)
+      sub.delete
+      @user.role = 'standard'
+      @user.save!
+      flash[:notice] = "Canceled subscription."
+      redirect_to root_path
+    else
+      flash[:error] = "There was an error canceling your subscription. Please notify us."
+      redirect_to edit_user_registration_path
+    end
   end
 
   private
