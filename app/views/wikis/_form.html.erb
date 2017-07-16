@@ -22,8 +22,15 @@
      <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter wiki body" %>
    </div>
    <% end %>
+   <% if current_user.admin? || current_user.premium? %>
+    <div class="form-group">
+      <%= f.label :private, class: 'checkbox' do %>
+        <%= f.check_box :private %> Private Wiki
+      <% end %>
+    </div>
+   <% end %>
    <div class="form-group">
      <%= f.submit "Save", class: 'btn btn-outline-primary' %>
    </div>
  <% end %>
- <%= button_to "Back", jobs_path, method: "get", class: "btn btn-primary btn-outline btn-sm" %>
+ <%= button_to "Back", wikis_path, method: "get", class: "btn btn-primary btn-outline btn-sm" %>

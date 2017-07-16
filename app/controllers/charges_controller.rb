@@ -36,12 +36,13 @@ class ChargesController < ApplicationController
     if params[:action] == 'cancel_plan'
       customer = Stripe::Customer.retrieve(id: current_user.stripe_customer_id)
 
-      # binding.pry
       sub_id = customer.subscriptions.first.id
       sub = Stripe::Subscription.retrieve(sub_id)
       sub.delete
       @user.role = 'standard'
       @user.save!
+
+      make_wikis_public(@user)
       flash[:notice] = "Canceled subscription."
       redirect_to root_path
     else
