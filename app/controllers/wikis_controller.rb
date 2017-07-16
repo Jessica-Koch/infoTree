@@ -2,6 +2,7 @@ class WikisController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
+    @wikis
     @wikis = Wiki.page(params[:page]).per(10)
   end
 

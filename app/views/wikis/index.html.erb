@@ -27,7 +27,7 @@
 
     <h4><%= link_to wiki.title, wiki %></h4>
 
-    <p><%= wiki.body.truncate_words(10) %></p>
+    <p><%= markdown(wiki.body.truncate_words(10)) %></p>
   </div>
     <% end %>
     <% end %>

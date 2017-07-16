@@ -16,6 +16,6 @@
   <hr>
   <br>
 
-  <p><%= @wiki.body %></p>
+  <p><%= markdown(@wiki.body) %></p>
   <%= button_to "Back", wikis_path, method: "get", class: "btn btn-primary btn-outline-warning btn-sm" %>
 </div>
