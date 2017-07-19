@@ -12,11 +12,13 @@ end
 users = User.all
 
 150.times do
-  Wiki.create!(
-    user: users.sample,
+  wiki = Wiki.create!(
     title: Faker::Hipster.word.titlecase,
     body: Faker::Hipster.paragraph(4, false),
-    private: RandomData.random_boolean
+    private: RandomData.random_boolean,
+  )
+  wiki.collaborators.create!(
+    user_id: users.sample.id
   )
 end
 wikis = Wiki.all
