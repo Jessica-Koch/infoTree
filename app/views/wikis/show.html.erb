@@ -17,5 +17,25 @@
   <br>
 
   <p><%= markdown(@wiki.body) %></p>
+  <hr>
+  <h4><%= pluralize(@wiki.collaborators.count, "collaborator") %>:</h4>
+
+  <ul class="collaborators">
+    <% @wiki.collaborators.each do |collaborator| %>
+
+    <li class="collaborator">
+      <% if wiki_owner? && !collaborator.owner? %>
+        <%= link_to wiki_collaborator_path(@wiki, collaborator), method: :delete, data: {confirm: 'Are you sure?'} do %>
+          <i class="fa fa-times" aria-hidden="true"></i>
+        <% end %>
+
+      <% elsif collaborator.owner? %>
+      <i class="fa fa-certificate" aria-hidden="true"></i>
+
+      <% end %>
+    <%= User.find(collaborator.user_id).full_name %></li>
+    <% end %>
+
+  </ul>
   <%= button_to "Back", wikis_path, method: "get", class: "btn btn-primary btn-outline-warning btn-sm" %>
 </div>

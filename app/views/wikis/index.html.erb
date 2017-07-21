@@ -10,26 +10,14 @@
 </div>
 <div class="container">
   <div class="col-md-8">
-  <% if current_user.admin? || current_user.premium? %>
-    <% @wikis.each do |wiki| %>
-    <div class="container-fluid section">
-
-    <h4><%= link_to wiki.title, wiki %></h4>
-
-    <p><%= wiki.body.truncate_words(10) %></p>
-  </div>
-    <% end %>
-  <% end %>
-  <% if current_user.standard? %>
-
-  <% @wikis.where('private', false).each do |wiki| %>
+    <% policy_scope(@wikis).each do |wiki| %>
     <div class="container-fluid section">
 
     <h4><%= link_to wiki.title, wiki %></h4>
 
     <p><%= markdown(wiki.body.truncate_words(10)) %></p>
+    <p><%= wiki.private ? 'private' : 'public' %></p>
   </div>
-    <% end %>
     <% end %>
   </div>
   <div class="container">

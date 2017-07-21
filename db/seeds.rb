@@ -18,7 +18,8 @@ users = User.all
     private: RandomData.random_boolean,
   )
   wiki.collaborators.create!(
-    user_id: users.sample.id
+    user_id: users.sample.id,
+    role: 0
   )
 end
 wikis = Wiki.all
